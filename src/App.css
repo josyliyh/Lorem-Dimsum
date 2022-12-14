@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+.dimsum {
+  padding:0;
+  display: inline-block;
+}
