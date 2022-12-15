@@ -10,40 +10,27 @@ function App() {
   const [para, setPara] = useState([]);
   const [text, setText] = useState([]);
 
-  const defaultProps = {
-    p: 1,
-    avgWordsPerSentence: 8,
-    avgSentencesPerParagraph: 8,
-    startWithLoremIpsum: true,
-    random: true,
-  };
-  
+
   const handleSubmit =(e) => {
     e.preventDefault();
     let text = '';
     let amount = parseInt(count);
     if (amount < 0 ) amount =1;
-    let i = 0;
+    let i = 1;
     let sentence = '';
-    // setText(data.slice (0,amount));
-    // data = data.sort(() => 0.5 - Math.random());
+    let newSentence = '';
     
-    // setText(data.sort(() => 0.5 - Math.random()).slice (0,(Math.random() * (15 - 7) + 7)));
+    sentence = (data.sort(() => 0.5 - Math.random()).slice (0,(Math.random() * (15 - 7) + 7)).join(' ')) +`.`;
+    sentence= sentence.charAt(0).toUpperCase() + sentence.slice(1);
+ 
     while (i < amount) {
-      // sentence.slice(1);
-      sentence =(sentence + (data.sort(() => 0.5 - Math.random()).slice (0,(Math.random() * (15 - 7) + 7))));
+
+      newSentence = (data.sort(() => 0.5 - Math.random()).slice (0,(Math.random() * (15 - 7) + 7)).join(' '));
+      newSentence = newSentence.charAt(0).toUpperCase() + newSentence.slice(1);
+      sentence = sentence +` `+ newSentence +`.`;
       i = i + 1;
     };
     setText(sentence);
-    // setText(text + (data.sort(() => 0.5 - Math.random()).slice (0,(Math.random() * (15 - 7) + 7))));
-
-    // return;
-    // if(count > 2000){
-    //   count = 2000; // max words which can be generated is 2000 only
-    //   } else if(count < 1 ){
-    //       count = 5; // min words is 5 
-    //   } 
-
     
   };
   
@@ -71,9 +58,6 @@ function App() {
       </form>
       <article>
         <div>
-        {/* {text.map((data, index) => (
-          <div className='dimsum' key={index}>{data}</div>
-        ))} */}
         {text}
         
         </div>
