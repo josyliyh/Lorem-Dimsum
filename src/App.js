@@ -34,8 +34,6 @@ function App() {
     
   };
   
-  
-
   return (
     <div className="App">
       <h1>Lorem Dimsum</h1>
